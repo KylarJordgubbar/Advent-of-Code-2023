@@ -18,8 +18,6 @@ dev_limits = {
 
 input1 = get_input_data.get_input('day_2')
 
-row = 'Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green'
-
 
 def get_game_nr(row):
     return int(re.findall('^Game ([\d]+):', row)[0])
@@ -34,16 +32,20 @@ def is_illegal(row, color, limit):
 
 
 def get_game_nr_or_zero(row, limits):
-    if is_illegal(row, 'red', limits['red']) or is_illegal(row, 'green', limits['green']) or is_illegal(row, 'blue',
-                                                                                                        limits['blue']):
+    if \
+            is_illegal(row, 'red', limits['red']) or \
+            is_illegal(row, 'green', limits['green']) or \
+            is_illegal(row, 'blue', limits['blue']):
         return 0
     else:
         return get_game_nr(row)
 
 
 def get_game_power(row):
-    return get_max_dice_for_color(row, 'red') * get_max_dice_for_color(row, 'green') * get_max_dice_for_color(row,
-                                                                                                              'blue')
+    return \
+        get_max_dice_for_color(row, 'red') * \
+        get_max_dice_for_color(row, 'green') * \
+        get_max_dice_for_color(row, 'blue')
 
 
 def get_sum_of_game_nr(rows, limits):
