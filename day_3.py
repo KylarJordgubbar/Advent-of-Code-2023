@@ -106,8 +106,8 @@ def get_total_gear_sum(the_input):
 
             for i in range(len(y_coords)):
                 if re.match('[*]', the_input[y_coords[i]][x_coords[i]]) is not None:
-                    #print(y_coords[i] * 1000 + x_coords[i])
-                    #print(int(match.group()))
+                    # print(y_coords[i] * 1000 + x_coords[i])
+                    # print(int(match.group()))
                     gear_and_numbers.append(((y_coords[i] * 1000 + x_coords[i]), (int(match.group()))))
 
     gears = [x[0] for x in gear_and_numbers]
@@ -117,9 +117,8 @@ def get_total_gear_sum(the_input):
             for gear, number in gear_and_numbers:
                 if k == gear:
                     numbers.append(number)
-            total_sum = total_sum +reduce(lambda x, y: x * y, numbers)
+            total_sum = total_sum + reduce(lambda x, y: x * y, numbers)
     return total_sum
-
 
 
 print('-- PART 1 --')
